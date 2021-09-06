@@ -1,6 +1,6 @@
-# Python program to illustrate a stop watch
-# using Tkinter
-#importing the required libraries
+# Programa Python para ilustrar um cronômetro
+# usando Tkinter
+#importing as bibliotecas necessárias
 import tkinter as Tkinter
 from datetime import datetime
 counter = 66600
@@ -10,7 +10,7 @@ def counter_label(label):
 		if running:
 			global counter
 
-			# To manage the initial delay.
+			# Para gerenciar o atraso inicial.
 			if counter==66600:			
 				display="Starting..."
 			else:
@@ -18,21 +18,21 @@ def counter_label(label):
 				string = tt.strftime("%H:%M:%S")
 				display=string
 
-			label['text']=display # Or label.config(text=display)
+			label['text']=display # Ou label.config (text = display)
 
-			# label.after(arg1, arg2) delays by
-			# first argument given in milliseconds
-			# and then calls the function given as second argument.
-			# Generally like here we need to call the
-			# function in which it is present repeatedly.
-			# Delays by 1000ms=1 seconds and call count again.
+                    # label.after (arg1, arg2) atrasa em
+                    # primeiro argumento fornecido em milissegundos
+                    # e então chama a função fornecida como segundo argumento.
+                    # Geralmente como aqui, precisamos chamar o
+                    # função na qual está presente repetidamente.
+                    # Atrasos em 1000ms = 1 segundo e contagem de chamadas novamente.
 			label.after(1000, count)
 			counter += 1
 
-	# Triggering the start of the counter.
+	# Disparando o início do contador.
 	count()	
 
-# start function of the stopwatch
+# função de início do cronômetro
 def Start(label):
 	global running
 	running=True
@@ -41,7 +41,7 @@ def Start(label):
 	stop['state']='normal'
 	reset['state']='normal'
 
-# Stop function of the stopwatch
+# Função de parada do cronômetro
 def Stop():
 	global running
 	start['state']='normal'
@@ -49,24 +49,24 @@ def Stop():
 	reset['state']='normal'
 	running = False
 
-# Reset function of the stopwatch
+# Função de reset do cronômetro
 def Reset(label):
 	global counter
 	counter=66600
 
-	# If rest is pressed after pressing stop.
+	# Se pousar for pressionado após pressionar parar.
 	if running==False:	
 		reset['state']='disabled'
 		label['text']='Welcome!'
 
-	# If reset is pressed while the stopwatch is running.
+	# Se reset for pressionado enquanto o cronômetro estiver em execução.
 	else:			
 		label['text']='Starting...'
 
 root = Tkinter.Tk()
 root.title("Stopwatch")
 
-# Fixing the window size.
+# Corrigindo o tamanho da janela.
 root.minsize(width=250, height=70)
 label = Tkinter.Label(root, text="Welcome!", fg="black", font="Verdana 30 bold")
 label.pack()
